@@ -1,0 +1,50 @@
+{
+	"version": 6,
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 29,
+		"patch": 0
+	},
+	"configurePresets": [
+		{
+			"name": "default-preset",
+			"displayName": "Base configuration",
+			"generator": "Ninja",
+			"binaryDir": "${sourceDir}/build"
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "default-build",
+			"displayName": "Default build",
+			"configurePreset": "default-preset",
+			"targets": ["all", "generate_docs"]
+		}
+	],
+	"testPresets": [
+		{
+			"name": "default-tests",
+			"displayName": "Default tests",
+			"configurePreset": "default-preset",
+			"execution": {
+				"noTestsAction": "error"
+			}
+		}
+	],
+	"workflowPresets": [
+		{
+			"name": "default",
+			"displayName": "Building, testing, & updating docs",
+			"steps": [
+				{
+					"type": "configure",
+					"name": "default-preset"
+				},
+				{
+					"type": "build",
+					"name": "default-build"
+				}
+			]
+		}
+	]
+}
