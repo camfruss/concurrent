@@ -12,8 +12,8 @@ export namespace concurrent::lockbased
 	class queue : public concurrent::queue<T>
 	{
 		public:
-			T& front() const override; 
-			T& back() const override;
+			const T& front() const override; 
+			const T& back() const override;
 			
 			bool empty() const override;
 			std::size_t size() const override;
