@@ -1,5 +1,6 @@
 export module concurrent.rwlock;
 
+import <functional>;
 import <mutex>;
 import <shared_mutex>;
 import <utility>;
